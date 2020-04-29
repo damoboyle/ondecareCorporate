@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Corporate Landing Page">
+		<meta name="keywords" content="HTML,CSS,JavaScript">
+		<meta name="author" content="Andrew Barras, Arun Karki, Asim Oli, Damian O'Boyle, Rajib Rijal">
+		
+		<title>Corporate Landing Page</title>
+		<link rel="icon" href="icon.png">
+		<link rel="stylesheet" type="fonts" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+		<link rel="stylesheet" type="text/css" href="corporate.css">
+    	<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<body>
+		<h1>Corporate Benefits</h1>
+
+		<img src="features.png">
+
+		<div class="roi">
+			<h2>Return On Investment (ROI)</h2>
+			<p>Research shows that employers can expect a $3-4 return for $1 invested in back-up care due to less absenteeism, better work product and a reducation in employee turnover.</p>
+		</div>
+
+		<div class="why">
+			<h2>Why OndeCare?</h2>
+			<p>OndeCare's Concierge Family Care Program is an employee benefit that can contribute to employee attraction and retention stratagies, address the cost of productivity loss due to unplanned absences (estimated as 6.7% of payroll), and prepare deadline driven businesses for the key challenges of tomorrow's workfore:</p>
+			<ul>
+				<li>The momentum of the work-life movement</li>
+				<li>The increase of Millenialls in the workforce</li>
+				<li>The aging Baby Boomer Population</li>
+			</ul>
+			<p><b>Work Life</b> integration has been underway for over a decade but today more than 50% of working mothers and fathers say juggling work and family life is difficult. Both consider leaving the workplace beacause of it. Suprisingly, men are increasingly more likely to change jobs (67%) than women (57%).</p>
+			<p>By 2025, 75% of the global workforce will be made up of Generation-Y <b>(Millenials)</b>, of whom 62% say on-site or subsidised childcare is important as opposed to 47% of the Boomer Generations</p>
+			<p>Nearly half of adults in their 40s and 50s have <b>a parent older than 65</b> and have children of their own or are supporting a grown child. Finally, 15% of middle-aged adults are providing financial support to both an aging parent and a child. This number will only continue to rise</p>
+		</div>
+
+		<h2>Employer Sign Up</h2>
+
+		<div class="choose">
+			<button  id="signbtn" onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
+			<button  id="logbtn" onclick="document.getElementById('id02').style.display='block'">Login</button>
+		</div>
+
+		<div id="id01" class="modal">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+			<form class="modal-content" action="signup.php" method="post" onsubmit="return check(this);">
+		    	<div class="container">
+			    	<h1>Sign Up</h1>
+			    	<section>For OndeCare's Coroporate Benefits Program</section>
+			      		<hr>
+				    <label for="company"><b>Company Name</b></label>
+				    	<input type="text" name="company" id="company" placeholder="Company Name" pattern="[^'\x22\(\)\{}]+" title="Invalid input. Avoid Special Characters and Symbols." required autofocus>
+			        <label for="executive"><b>Authorizing Executive</b></label>
+			    		<input type="text" name="executive" id="executive" placeholder="Executive Name" size="30" pattern="[^'\x22\(\)\{}]+" title="Invalid input. Avoid Special Characters and Symbols." required>
+			        <label for="email"><b>Email</b></label>
+			    		<input type="email" name="email" id="email" placeholder="example@ondecare.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" size="50" title="Please only enter a conventionally formatted email address." required>
+			        <label for="SUpsw"><b>Password</b></label>
+			        	<input type="password" name="SUpsw" id="SUpsw" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase letter, one lowercase letter and at least 8 or more characters" required>
+			        <label for="psw-repeat"><b>Confirm Password</b></label>
+			        	<input type="password" name="confirm" name="confirm" placeholder="Confirm Password" title="Must match password field" required>
+
+			        <div id="titles">
+					    <h3>Field cannot contain sensitive Characters</h3>
+					</div>
+
+					<div id="contact">
+					    <h3>Email address must follow normal formatting conventions</h3>
+					</div>
+
+			        <div id="message">
+					    <h3>Password must contain the following:</h3>
+					    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+					    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+					    <p id="number" class="invalid">A <b>number</b></p>
+					    <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+					</div>
+			        
+			  		<section>By signing up you agree to our <a href="https://ondecare.com/legal">Terms & Conditions</a></section>
+
+			    	<div class="clearfix">
+			        	<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+			        	<button type="submit" class="signupbtn" name="submit" id="submit">Sign Up</button>
+			      	</div>
+	    		</div>
+  			</form>
+		</div>
+
+		<script type="text/javascript" language="JavaScript">
+			function check(theForm) {
+				if (theForm.SUpsw.value != theForm.confirm.value)
+				{
+					alert('Your Passwords don\'t match!');
+					return false;
+				} else {
+					return true;
+				}
+			}
+		</script>
+
+		<div id="id02" class="modal">
+  			<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+  			<form class="modal-content" action="login.php" method="post">
+    			<div class="container">
+      				<h1>Login</h1>
+      					<hr>
+      				<label for="username"><b>Email</b></label>
+    					<input type="text" name="username" id="username" placeholder="Email" required>
+					<label for="logpsw"><b>Password</b></label>
+    					<input type="password" name="logpsw" id="logpsw" placeholder="Password" required>
+ 
+      				<div class="clearfix">
+        				<button type="button" class="cancelbtn" onclick="document.getElementById('id02').style.display='none'">Cancel</button>
+        				<button type="submit" name="submit" class="signupbtn">Log in</button>
+    				</div>
+    			</div>
+  			</form>
+		</div>
+
+		<script>
+			// Get the modal
+			var modal = document.getElementById('id01');
+			var modal = document.getElementById('id02');
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+				if (event.target == modal) {
+			    	modal.style.display = "none";
+				}
+			}
+		</script>
+
+		<script>
+			//Display Password aids
+			var companyInput = document.getElementById("company");
+
+			// When the user clicks on the Company field, a helper message box is displayed
+			companyInput.onfocus = function() {
+				document.getElementById("titles").style.display = "block";
+				document.getElementById("titles").style.color = "#16A8CF";
+			}
+
+			// When the user clicks outside of the Company field, hide the message box
+			companyInput.onblur = function() {
+				document.getElementById("titles").style.display = "none";
+			}
+
+			var exeInput = document.getElementById("executive");
+
+			// When the user clicks on the Executive field, a helper message box is displayed
+			exeInput.onfocus = function() {
+				document.getElementById("titles").style.display = "block";
+				document.getElementById("titles").style.color = "#16A8CF";
+			}
+
+			// When the user clicks outside of the Executive field, hide the message box
+			exeInput.onblur = function() {
+				document.getElementById("titles").style.display = "none";
+			}
+
+			var emailInput = document.getElementById("email");
+
+			// When the user clicks on the Email field, a helper message box is displayed
+			emailInput.onfocus = function() {
+			 	document.getElementById("contact").style.display = "block";
+			 	document.getElementById("contact").style.color = "#16A8CF";
+			}
+
+			// When the user clicks outside of the Email field, hide the message box
+			emailInput.onblur = function() {
+			 	document.getElementById("contact").style.display = "none";
+			}
+
+			//Password Validation Helper
+			var myInput = document.getElementById("SUpsw");
+			var letter = document.getElementById("letter");
+			var capital = document.getElementById("capital");
+			var number = document.getElementById("number");
+			var length = document.getElementById("length");
+
+			// When the user clicks on the password field, show the message box
+			myInput.onfocus = function() {
+			  document.getElementById("message").style.display = "block";
+			}
+
+			// When the user clicks outside of the password field, hide the message box
+			myInput.onblur = function() {
+			  document.getElementById("message").style.display = "none";
+			}
+
+			// When the user starts to type something inside the password field //Dynamic Checking
+			myInput.onkeyup = function() {
+			    // Validate lowercase letters
+			    var lowerCaseLetters = /[a-z]/g;
+			    if(myInput.value.match(lowerCaseLetters)) { 
+				    letter.classList.remove("invalid");
+				    letter.classList.add("valid");
+				} else {
+				    letter.classList.remove("valid");
+				    letter.classList.add("invalid");
+				}
+
+			    // Validate capital letters
+			    var upperCaseLetters = /[A-Z]/g;
+			    if(myInput.value.match(upperCaseLetters)) { 
+				    capital.classList.remove("invalid");
+				    capital.classList.add("valid");
+				} else {
+				    capital.classList.remove("valid");
+				    capital.classList.add("invalid");
+			    }
+
+			    // Validate numbers
+			    var numbers = /[0-9]/g;
+			    if(myInput.value.match(numbers)) { 
+				    number.classList.remove("invalid");
+				    number.classList.add("valid");
+				} else {
+				    number.classList.remove("valid");
+				    number.classList.add("invalid");
+			    }
+
+			    // Validate length
+			    if(myInput.value.length >= 8) {
+				    length.classList.remove("invalid");
+				    length.classList.add("valid");
+				} else {
+				    length.classList.remove("valid");
+				    length.classList.add("invalid");
+			    }
+			}
+		</script>
+	</body>
+</html>

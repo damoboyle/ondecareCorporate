@@ -1,0 +1,68 @@
+body
+{
+  font-family: 'Open Sans', sans-serif;
+  background: #FAFAFA;
+  margin: 0;
+}
+
+.logo
+{
+  background: #BFC9CA;
+  width: 100%;
+}
+
+h1
+{
+  margin-left: 5%;
+  font-size: 40px;
+  color: #26D3E6;
+}
+
+h2
+{
+  margin-left: 10%;
+  color: #16A8CF;
+}
+
+div
+{
+	margin-left: 5%;
+}
+
+button
+{
+  background-color: #26D3E6;
+  color: #FAFAFA;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+}
+
+#manage
+{
+	margin-left: 50%;
+  border-radius: 40%;
+}
+
+#add, #update
+{
+	margin-left: 60%;
+  font-size: 20px;
+  width: 100px;
+}
+
+input, select
+{
+	padding: 5px;
+}
+
+#eName, #email, #spinner
+{
+	margin: 10px;
+}
+
+table, #upload, #plans
+{
+	margin-left: 10%;
+}

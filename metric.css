@@ -1,0 +1,75 @@
+body
+{
+  font-family: 'Open Sans', sans-serif;
+  background: #FAFAFA;
+  margin: 0;
+}
+
+.logo
+{
+  background: #BFC9CA;
+  width: 100%;
+}
+
+h1
+{
+  margin-left: 5%;
+  font-size: 40px;
+  color: #16A8CF;
+}
+
+label
+{
+  font-weight: bold;
+}
+
+table
+{
+  margin-left: 10%;
+}
+
+button
+{
+  background-color: #26D3E6;
+  color: #FAFAFA;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+button:hover
+{
+  background-color: #16A8CF;
+}
+
+#gift, #popup, #manage
+{
+  margin-top: 10px;
+  margin-left: 10%;
+}
+
+div
+{
+  width: 90%;
+  padding: 200px 0;
+  border: 10px;
+  border-style: solid;
+  border-color: #16A8CF;
+  margin: 5%;
+  font-size: 100px;
+  text-align: center;
+}
+
+#report
+{
+  margin-top: 90px;
+  margin-bottom: 0;
+}
+
+#request
+{
+  float: right;
+  margin-right: 5%;
+}

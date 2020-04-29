@@ -1,0 +1,44 @@
+body
+{
+	font-family: 'Open Sans', sans-serif;
+	background: #FAFAFA;
+	margin: 0;
+}
+
+.logo
+{
+	background: #BFC9CA;
+	width: 100%;
+}
+
+h1
+{
+	font-size: 50px;
+	text-align: center;
+	color: #26D3E6;
+}
+
+h2
+{
+	margin-left: 5%;
+	color: #16A8CF;
+}
+
+ul li
+{
+	margin-left: 10%;
+}
+
+p
+{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+#signbtn, #logbtn
+{
+	margin-left: 10%;
+	font-size: 24px;
+	width: 140px;
+	height: 60px;
+}
