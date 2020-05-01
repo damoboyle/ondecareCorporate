@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="description" content="Management Page">
-		<meta name="keywords" content="HTML, CSS, JavaScript">
+		<meta name="keywords" content="HTML, CSS, JavaScript, PHP">
 		<meta name="author" content="Andrew Barras, Arun Karki, Asim Oli, Damian O'Boyle, Rajib Rijal">
 		
 		<title>Employer Managment Page</title>
@@ -14,31 +14,31 @@
 	
 	<body>
 		<?php
-		//Pulls data for default Info
+			//Pulls data for default Info
 			$dbTable = $_POST ['id'];
 			
 			$host = "sql202.epizy.com";
-            $database = "epiz_25644198_ondecare";
-            $username = "epiz_25644198";
-            $password = "25nGNQu3B0";
+			$database = "epiz_25644198_ondecare";
+			$username = "epiz_25644198";
+			$password = "25nGNQu3B0";
 
-		   $conn = mysqli_connect($host, $username, $password, $database);
+		   	$conn = mysqli_connect($host, $username, $password, $database);
 		   	if(!$conn)
 		   	{
 				die("Unable to connect: " . $conn->connect_error);
-		    }
+			}
 
-		    $sql = "SELECT * FROM epiz_25644198_ondecare.corporate WHERE id=$dbTable";
-    		$results = mysqli_query($conn, $sql);
-    		$record = mysqli_fetch_assoc($results);
+		    	$sql = "SELECT * FROM epiz_25644198_ondecare.corporate WHERE id=$dbTable";
+			$results = mysqli_query($conn, $sql);
+			$record = mysqli_fetch_assoc($results);
 
-	    	$company = $record["company"];
-	    	$executive = $record['executive'];
-	    	$email = $record['email'];
-    		$password = $record['password'];
-    		$address = $record['address'];
+			$company = $record["company"];
+			$executive = $record['executive'];
+			$email = $record['email'];
+			$password = $record['password'];
+			$address = $record['address'];
 
-    		$conn->close();
+			$conn->close();
 		?>
 
 		<h1>Program Managment</h1>
@@ -66,14 +66,15 @@
 		</form>
 
 		<button id="manage" onclick="add();"> + </button>
+		<button id="delete" onclick="remove();"> Delete </button>
 
 		<script type="text/javascript" language="JavaScript">
   			function add() {
-				//Variable that stores clone of first field
-				var clone = jQuery("#addEmployee").first().clone();
-				
 				//Variable that stores (Number of Employee Fields) + 1
 				var numItems = ($('#employeeShelf').children().length +1);
+				
+				//Variable that stores clone of first field
+				var clone = jQuery("#addEmployee").first().clone().prop('id', 'addEmployee'+numItems);
 				
 				//Changes clone's eName to (eName+numItems)
 				clone.find("input:first").attr("name", "eName"+numItems);
@@ -86,11 +87,18 @@
 				
 				//Adds clone to Webpage
 				jQuery("#employeeShelf").append(clone);
-				document.getElementById("employeeNumber").value = numItems;
 			}
+			
+			function remove() {
+				// how many duplicate input fields we currently have
+				var num = ($('#employeeShelf').children().length);
+				
+				// remove the last field
+		        	$('#addEmployee'+num).first().remove(); 
+		    	}
   		</script>
 
-  		<form id="upload" action="upload.php">
+  		<form enctype="multipart/form-data" id="upload" action="upload.php" method="post">
   			<label for="userfile">Upload a Formatted File:&emsp;&emsp;</label>
   				<input type="file" id="userfile" name="userfile" required>
                 <input type="hidden" name="id" value="<?php echo $dbTable; ?>">
