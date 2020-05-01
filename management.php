@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="description" content="Management Page">
-		<meta name="keywords" content="HTML, CSS, JavaScript">
+		<meta name="keywords" content="HTML, CSS, JavaScript, PHP">
 		<meta name="author" content="Andrew Barras, Arun Karki, Asim Oli, Damian O'Boyle, Rajib Rijal">
 		
 		<title>Employer Managment Page</title>
@@ -66,14 +66,15 @@
 		</form>
 
 		<button id="manage" onclick="add();"> + </button>
+		<button id="delete" onclick="remove();"> Delete </button>
 
 		<script type="text/javascript" language="JavaScript">
   			function add() {
-				//Variable that stores clone of first field
-				var clone = jQuery("#addEmployee").first().clone();
-				
 				//Variable that stores (Number of Employee Fields) + 1
 				var numItems = ($('#employeeShelf').children().length +1);
+				
+				//Variable that stores clone of first field
+				var clone = jQuery("#addEmployee").first().clone().prop('id', 'addEmployee'+numItems);
 				
 				//Changes clone's eName to (eName+numItems)
 				clone.find("input:first").attr("name", "eName"+numItems);
@@ -86,8 +87,15 @@
 				
 				//Adds clone to Webpage
 				jQuery("#employeeShelf").append(clone);
-				document.getElementById("employeeNumber").value = numItems;
 			}
+			
+			function remove() {
+				// how many duplicate input fields we currently have
+				var num = ($('#employeeShelf').children().length);
+				
+				// remove the last field
+		        	$('#addEmployee'+num).first().remove(); 
+		    	}
   		</script>
 
   		<form enctype="multipart/form-data" id="upload" action="upload.php" method="post">
